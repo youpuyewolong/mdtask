@@ -31,7 +31,7 @@ class Table extends Command
         $path = $creator->create($className);
 
         // Load the alternative template if it is defined.
-        $contents = file_get_contents(__DIR__ . '/stubs/task.php');
+        $contents = file_get_contents(__DIR__ . '/stubs/task.stub');
 
         // inject the class names appropriate to this migration
         $contents = strtr($contents, [
