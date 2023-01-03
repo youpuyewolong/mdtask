@@ -1,0 +1,17 @@
+{
+    "name": "wxl/mdtask",
+    "type": "library",
+    "require": {
+        "topthink/think-queue": "^3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Wxl\\Mdtask\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "wxl"
+        }
+    ]
+}
