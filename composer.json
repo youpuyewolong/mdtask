@@ -1,5 +1,5 @@
 {
-    "name": "wxl/mdtask",
+    "name": "wxlmd/mdtask",
     "type": "library",
     "require": {
         "topthink/think-queue": "^3.0"
