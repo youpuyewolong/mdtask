@@ -11,6 +11,9 @@
     },
     "extra": {
         "think": {
+            "services": [
+                "wxlmd\\mdtask\\src\\Service"
+            ],
             "config": {
                 "task": "src/config.php"
             }
