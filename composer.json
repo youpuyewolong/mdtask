@@ -9,6 +9,16 @@
             "Wxl\\Mdtask\\": "src/"
         }
     },
+    "extra": {
+        "think": {
+            "config": {
+                "task": "src/config.php"
+            }
+        }
+    },
+    "require-dev": {
+        "topthink/think-migration": "^3.0.0"
+    },
     "authors": [
         {
             "name": "wxl"
