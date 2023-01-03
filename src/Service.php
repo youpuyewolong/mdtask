@@ -5,7 +5,7 @@ namespace wxlmd\mdtask\src;
 use think\helper\Arr;
 use think\helper\Str;
 use think\Queue;
-use think\queue\command\Table;
+use wxlmd\mdtask\command\Table;
 
 
 class Service extends \think\Service
