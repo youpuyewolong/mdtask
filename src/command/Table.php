@@ -31,11 +31,11 @@ class Table extends Command
         $path = $creator->create($className);
 
         // Load the alternative template if it is defined.
-        $contents = file_get_contents(__DIR__ . '/stubs/jobs.stub');
+        $contents = file_get_contents(__DIR__ . '/stubs/task.php');
 
         // inject the class names appropriate to this migration
         $contents = strtr($contents, [
-            'CreateJobsTable' => $className,
+            'CreateTaskTable' => $className,
             '{{table}}'       => $table,
         ]);
 
