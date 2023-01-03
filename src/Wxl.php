@@ -1,6 +1,6 @@
 <?php
 
-namespace wxlmd\mdtask;
+namespace mdtask;
 
 class Wxl
 {

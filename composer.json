@@ -6,13 +6,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Wxl\\Mdtask\\": "src/"
+            "mdtask\\": "src/"
         }
     },
     "extra": {
         "think": {
             "services": [
-                "wxlmd\\mdtask\\Service"
+                "mdtask\\Service"
             ],
             "config": {
                 "task": "src/config.php"

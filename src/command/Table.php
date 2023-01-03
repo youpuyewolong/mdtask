@@ -1,6 +1,6 @@
 <?php
 
-namespace wxlmd\mdtask\command;
+namespace mdtask\command;
 
 use think\console\Command;
 use think\helper\Str;

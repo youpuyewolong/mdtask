@@ -1,11 +1,11 @@
 <?php
 
-namespace wxlmd\mdtask\src;
+namespace mdtask;
 
 use think\helper\Arr;
 use think\helper\Str;
 use think\Queue;
-use wxlmd\mdtask\command\Table;
+use mdtask\command\Table;
 
 
 class Service extends \think\Service
