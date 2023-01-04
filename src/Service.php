@@ -3,6 +3,7 @@
 namespace mdtask;
 
 
+use mdtask\command\Listen;
 use mdtask\command\Table;
 use mdtask\command\ServiceFile;
 
@@ -17,7 +18,8 @@ class Service extends \think\Service
     {
         $this->commands([
             Table::class,
-            ServiceFile::class
+            ServiceFile::class,
+            Listen::class
         ]);
     }
 }
