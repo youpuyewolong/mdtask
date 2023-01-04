@@ -2,11 +2,9 @@
 
 namespace mdtask;
 
-use think\helper\Arr;
-use think\helper\Str;
-use think\Queue;
-use mdtask\command\Table;
 
+use mdtask\command\Table;
+use mdtask\command\ServiceFile;
 
 class Service extends \think\Service
 {
@@ -18,7 +16,8 @@ class Service extends \think\Service
     public function boot()
     {
         $this->commands([
-            Table::class
+            Table::class,
+            ServiceFile::class
         ]);
     }
 }
