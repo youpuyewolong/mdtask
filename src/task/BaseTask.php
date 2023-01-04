@@ -3,13 +3,14 @@
 namespace mdtask\task;
 
 use mdtask\model\Task;
+use think\facade\Db;
+
 class BaseTask{
 
-    protected $task = null;
 
     public function do_task($task_id,$param){
 
-        $this->task = Task::find($task_id);
+        $table = app()->config->get('task.table');
         try {
             $res = $this->do_task_handle($param);
             $status = 3;
@@ -17,8 +18,7 @@ class BaseTask{
             $res = '任务执行出错';
             $status = 4;
         }
-
-        $this->task->save(['status'=>$status,'result'=>$res]);
+        Db::name($table)->where('id','=',$task_id)->update(['status'=>$status,'result'=>$res]);
     }
 
     protected function do_task_handle($param){

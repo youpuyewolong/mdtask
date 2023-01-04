@@ -21,7 +21,8 @@ class Table extends Command
             return;
         }
 
-        $table = $this->app->config->get('task.table');
+        $table_pre = $this->app->config->get('database.connections.mysql.prefix');
+        $table = $table_pre.$this->app->config->get('task.table');
 
         $className = Str::studly("create_{$table}_table");
 

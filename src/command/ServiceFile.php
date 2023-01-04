@@ -3,23 +3,25 @@
 namespace mdtask\command;
 
 use think\console\Command;
+use think\console\input\Argument;
 use think\helper\Str;
 use think\migration\Creator;
 
 class ServiceFile extends Command
 {
+
     protected function configure()
     {
         $this->setName('mdtask:create')
-            ->addArgument('name', Argument::OPTIONAL, "service name")
+            ->addArgument('name', Argument::REQUIRED, "service name")
             ->setDescription('Create Task ServiceFile File');
     }
 
     public function handle()
     {
         $name = trim($this->input->getArgument('name'));
-        $name = $name ?: time();
-        $name = ucfirst($name).".php";
+        $name = Str::studly($name);
+        $file_name = $name.".php";
 
         $namespace = $this->app->config->get('task.service_path');
         $namespace = strtr($namespace,"/","\\");
@@ -29,11 +31,15 @@ class ServiceFile extends Command
         // inject the class names appropriate to this migration
         $contents = strtr($contents, [
             'ServiceName' => $name,
-            'namespace' => $namespace
+            'NameSpace' => $namespace
         ]);
-        $path = $this->app->config->get('task.service_path');
-        file_put_contents($path, $contents);
+        $dir_path = $this->app->getRootPath() .$namespace;
+        $file_path = $this->app->getRootPath() .$namespace . "\\" .$file_name;
+        if (!is_dir($dir_path)){
+            mkdir($dir_path, 0755, true);
+        }
+        $res = file_put_contents($file_path, $contents);
 
-        $this->output->info('ServiceFile created successfully!');
+        $this->output->info($file_path.' created successfully!');
     }
 }
